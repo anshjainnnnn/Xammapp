@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/anshjainnnnn/Xammapp.git'
+            }
+        }
+        stage('Deploy to XAMPP') {
+            steps {
+                // Copy first..html
+                bat 'copy /Y first..html "C:\\xampp\\htdocs'
+            }
+        }
+    }
+}
